@@ -78,7 +78,7 @@ void ChildTriangles::Update()
 		return;
 	}
 
-	Move(); // 移動処理を呼ぶ
+	Move(); // 移動処理を呼ぶ 
 
 	// 自身の三角形を transform に合わせて更新
 	TriangleBaseInitUsingTransform(m_objectRadius,90.0f);
