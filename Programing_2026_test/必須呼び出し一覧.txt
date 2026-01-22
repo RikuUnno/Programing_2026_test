@@ -1,0 +1,66 @@
+必須呼び出し一覧
+
+1) オブジェクト生成／解放関連
+- ObjectManager::Create<T>(...) -> 宣言: ObjectManager.h
+いつ: オブジェクト生成時（例: Scene::Start() や Spawn 処理）
+
+- ObjectManager::Release(ObjectHandle) -> 宣言: ObjectManager.h / 実装: ObjectManager.cpp
+いつ: オブジェクト使用終了時、シーン破棄時、ObjectGroup::Clear() 内
+
+- ObjectManager::ClearAll() -> 宣言: ObjectManager.h / 実装: ObjectManager.cpp
+いつ: アプリ終了時（Main.cpp の終了経路）
+
+2) プール操作・再利用・メンテナンス
+- ObjectPool::Acquire<T>(...) -> 定義: ObjectPool.h（テンプレート）
+いつ: ObjectManager::Create 経由で呼ばれる（ユーザは通常直接呼ばない）
+
+- ObjectPool::Release(ObjectHandle) -> 定義: ObjectPool.h
+いつ: ObjectManager::Release 経由で呼ぶ
+
+- ObjectPool::CleanupIdle(double) -> 定義: ObjectPool.h
+いつ: 一定間隔で呼ぶ（Main.cpp のループで定期実行）
+
+- ObjectPool::DumpState() -> 定義: ObjectPool.h
+いつ: デバッグ時に状態確認（ObjectGroup の Update/Draw 開始など）
+
+3) オブジェクトライフサイクル（各 GameObject）
+- GameObject::InitObject() -> 宣言: GameObject.h / 実装: GameObject.cpp
+いつ: 新規生成後または再利用時に初期化（ObjectPool が呼ぶ）
+
+- GameObject::Update() -> 宣言/オーバーライド: GameObject.h / 派生クラス
+いつ: 毎フレーム（ObjectGroup::UpdateAll 経由）
+
+- GameObject::Draw() -> 宣言/オーバーライド: GameObject.h / 派生クラス
+いつ: 毎フレーム描画（ObjectGroup::DrawAll 経由）
+
+4) グルーピング／走査
+- ObjectGroup::Add/Remove/Clear -> ObjectGroup.h / ObjectGroup.cpp
+いつ: オブジェクト管理（シーンの Start/End 等）
+
+- ObjectGroup::UpdateAll()/DrawAll()/ForEach(...) -> ObjectGroup.cpp
+いつ: シーンの Update()/Draw() 内で毎フレーム呼ぶ
+
+5) シーン制御
+- SceneBase::Start()/End()/Update()/Draw() -> SceneBase.h / 各派生シーン
+いつ: Main.cpp のメインループで Start/End/Update/Draw を適切に呼ぶ
+
+6) 時間管理
+- Time::Update()/Time::DeltaTime() -> Time.h / Time.cpp
+いつ: 毎フレーム（Main.cppですでに呼んでいる）
+
+7) ファクトリ
+- Factory::CreateObject<T>(...) -> Factory.h / Factory.cpp
+いつ: ObjectPool::Acquire が新規生成するときに呼ぶ（直接呼ばない）
+
+8) デバッグ表示
+- ObjectManager::DrawObjectCount(int x, int y) -> ObjectManager.h / 実装
+いつ: フレーム毎のデバッグ表示（Main.cpp の描画パス）
+
+確認・注意点
+- シーン破棄時に必ず Release を呼ぶ（または ObjectGroup::Clear が正しく Release を呼んでいること）。Release を呼ばないと inUse=true のままになり再利用されない。
+- CleanupIdle を定期的に呼んでアイドルオブジェクトを解放する（Main.cpp のループで間隔制御して呼ぶ）。
+- 外部で shared_ptr を長期保持すると use_count>1になり再利用を阻害する。外部参照は明示的に破棄するか、Release を優先する。
+
+補助提案
+- Release 呼び出しが行われているか追跡するために、Scene::End() や ObjectGroup::Clear() にデバッグログを入れる。
+- 自動クリーンアップ（間隔管理）を ObjectManager に組み込むと呼び忘れ防止になる。

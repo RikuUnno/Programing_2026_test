@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene">
+      <UniqueIdentifier>{7939b55d-ba99-461c-89b9-cbaae8580ac1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\Base">
+      <UniqueIdentifier>{5ebf4a38-b578-4b42-ada0-451beb477b7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\Scenes">
+      <UniqueIdentifier>{8a6bdce1-8aad-43f5-9d65-0c7f6b8bdd18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Scene">
+      <UniqueIdentifier>{c0351527-0a84-400c-b6f7-f6ab360689c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Scene\Base">
+      <UniqueIdentifier>{e69f1dd4-8dac-461f-bd74-a9862ff0704d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Scene\Scenes">
+      <UniqueIdentifier>{2e61eeb9-16b7-4438-942f-c7ad4e674e85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System">
+      <UniqueIdentifier>{cd41cffa-cddf-49ed-91fd-1bbb97dcf082}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System">
+      <UniqueIdentifier>{5b508562-0b35-4ee3-8a94-24ead17410ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System\Key">
+      <UniqueIdentifier>{af8b99de-54ef-4026-80ff-828dc9758162}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System\Key">
+      <UniqueIdentifier>{eac22538-f488-4597-89fd-2e52e2fdabb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System\Time">
+      <UniqueIdentifier>{86189d44-5332-41b8-aa54-b8936ac5f146}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject">
+      <UniqueIdentifier>{39bc97ac-57ec-419d-a0cd-92562723c28e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject">
+      <UniqueIdentifier>{6678c2d3-fc81-443c-8e76-76556f3dafaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System\Transform">
+      <UniqueIdentifier>{6286318f-0cff-4d96-b696-4a15f514b65d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System\Transform">
+      <UniqueIdentifier>{5722c646-e8d1-454c-8bdb-d4a098c2e5e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System\Assert">
+      <UniqueIdentifier>{2c1a1919-7d45-4a6c-98a9-09f7adbe59a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System\Assert">
+      <UniqueIdentifier>{3ffbd87d-7b73-4873-ad62-f876f78637a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Factory">
+      <UniqueIdentifier>{1e5218a8-449e-4026-8414-0466f19883b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\Factory">
+      <UniqueIdentifier>{4cfd7183-9b99-4adf-8faf-19bf3ebb2d39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="メモ">
+      <UniqueIdentifier>{a60634df-684f-4cd2-a303-bdb77f3f85fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\Manager">
+      <UniqueIdentifier>{1d651f3f-00b4-4adf-af77-7d431c659e2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Manager">
+      <UniqueIdentifier>{adb65eb1-ca6e-4f28-befb-8ca527143d9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\ObjectPool">
+      <UniqueIdentifier>{0dccffa3-8b0f-4e17-ac9a-985ac808eba4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\ObjectPool">
+      <UniqueIdentifier>{2e5b042c-1f99-43cc-ab7f-83e57e5f4bc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\ObjectHandle">
+      <UniqueIdentifier>{202246f0-eba7-4033-bc4b-5abb3c295b63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\Objects">
+      <UniqueIdentifier>{b27c1f3c-ad46-4c95-a63e-1cd44febe8ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Objects">
+      <UniqueIdentifier>{1d65dec3-e3bd-4116-8ef5-16bc95183022}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\Objects\Primitive">
+      <UniqueIdentifier>{6bb04aef-02fa-4651-88a7-811a0478d1b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\Objects\Primitive\Triangle">
+      <UniqueIdentifier>{08c71694-5c5c-48fc-9d3f-a646338455b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Objects\Primitive">
+      <UniqueIdentifier>{73582db4-8068-4d8d-a3e1-7bddc90c7add}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Objects\Primitive\Triangle">
+      <UniqueIdentifier>{da9e7a0e-c0d4-4fb5-a4e4-ec896841eb9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Objects\Primitive\Character">
+      <UniqueIdentifier>{b9c110c3-942a-47c1-b773-549684b51e5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Objects\Primitive\Character\Enemy">
+      <UniqueIdentifier>{11201eaf-ee63-43cd-a988-78d7f6c05b0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Objects\Primitive\Character\Enemy\Triangles">
+      <UniqueIdentifier>{1c53493a-a6f5-4055-81a9-465bf773ca0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\Objects\Primitive\Character">
+      <UniqueIdentifier>{8fa75cf7-126c-4c1a-b408-a68dfff7068b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\Objects\Primitive\Character\Enemy">
+      <UniqueIdentifier>{5449c5fb-dacf-4d00-9a32-72cd939ff8fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\Objects\Primitive\Character\Enemy\Triangles">
+      <UniqueIdentifier>{40efca9f-2535-4fac-8499-f17fc2a6a45e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\ObjectGroup">
+      <UniqueIdentifier>{638c29a9-2333-4faf-b91d-e6eae45f9ed3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\ObjectGroup">
+      <UniqueIdentifier>{8354181c-ae34-44e4-bf7a-0ec3e9ded3ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Objects\Primitive\Character\Enemy\Triangles\Child">
+      <UniqueIdentifier>{41252fc0-e662-4633-a832-14ecf0ae5dda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\Objects\Primitive\Character\Enemy\Triangles\Child">
+      <UniqueIdentifier>{7af39eaa-36bd-4a63-8d61-cebf50347875}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameInfo">
+      <UniqueIdentifier>{8ee9d3fd-1ff0-4c46-8efe-e0d6b04f4418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Objects\Primitive\Circle">
+      <UniqueIdentifier>{893c8477-e9ac-4bf8-a698-902f75ef153d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\Objects\Primitive\Circle">
+      <UniqueIdentifier>{6c1ea1e7-34b0-41ed-b56f-6398b7a8b8df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameInfo\MainInfo">
+      <UniqueIdentifier>{eb73dccf-d690-4bba-8c79-451be5b346f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameInfo\ObjectInfo">
+      <UniqueIdentifier>{41bb5e05-77ea-41e0-bdf2-1b3415cade5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="メモ\キャラクター">
+      <UniqueIdentifier>{8c872343-a581-4358-8ff2-f0f31c9ddc62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="メモ\キャラクター\Enemy">
+      <UniqueIdentifier>{c6ff7e81-9b36-42a8-8da1-cc588e534609}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Objects\Primitive\Character\Weapon">
+      <UniqueIdentifier>{4b4fc9df-21c9-4204-ab13-b4bc75bfc489}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\Objects\Primitive\Character\Weapon">
+      <UniqueIdentifier>{5ca4f2a7-8c19-4846-b0b8-49981758da42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\Objects\Primitive\Character\Weapon\Bullet">
+      <UniqueIdentifier>{742a1d11-26fb-4628-bb19-8d29e4a1d601}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Objects\Primitive\Character\Weapon\Bullet">
+      <UniqueIdentifier>{59837601-a93d-4636-86e6-81d4634810be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Objects\Primitive\Character\Weapon\Bullet\BulletTrigger">
+      <UniqueIdentifier>{54aad4c6-1cfa-452e-b7a2-bd24e27b5fa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\Objects\Primitive\Character\Weapon\Bullet\BulletTrigger">
+      <UniqueIdentifier>{e1bf4ac4-99de-4da7-af07-f6b8e8150e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Objects\Primitive\Character\Player">
+      <UniqueIdentifier>{cc1c533c-9a8f-4c77-a87e-b0a718df45ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\Objects\Primitive\Character\Player">
+      <UniqueIdentifier>{4f5ecdff-3f9e-460c-9917-43a1bf9a7cd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System\Collider">
+      <UniqueIdentifier>{ac6fe98c-86a6-461a-b3d8-2ebce8ddd152}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System\Collider\Colliders">
+      <UniqueIdentifier>{03f58f53-be0a-49dd-a42e-5507689e64bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System\Collider\ColliderManager">
+      <UniqueIdentifier>{eb79ad3b-7cac-436c-9bdc-bd96ff21a449}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System\Collider">
+      <UniqueIdentifier>{55f6d5eb-9dec-49be-94dd-0a5b02402052}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System\Time">
+      <UniqueIdentifier>{dda082cf-d5a4-47d7-a734-25dd3a3001d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System\Collider\Colliders">
+      <UniqueIdentifier>{2d25e6c3-ef23-404b-97e0-ada43ec6d5d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System\Collider\ColliderManager">
+      <UniqueIdentifier>{3161fc86-f6fe-4940-b9bb-65b7910b61c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameInfo\ColliderInfo">
+      <UniqueIdentifier>{ac61e797-bf6e-4ed0-a4e3-940aa6928a04}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneBase.cpp">
+      <Filter>ソース ファイル\Scene\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyInput.cpp">
+      <Filter>ソース ファイル\System\Key</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>ソース ファイル\System\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>ソース ファイル\Scene\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRoot.cpp">
+      <Filter>ソース ファイル\Scene\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadScene.cpp">
+      <Filter>ソース ファイル\Scene\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGameScene.cpp">
+      <Filter>ソース ファイル\Scene\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingScene.cpp">
+      <Filter>ソース ファイル\Scene\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>ソース ファイル\System\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Assert.cpp">
+      <Filter>ソース ファイル\System\Assert</Filter>
+    </ClCompile>
+    <ClCompile Include="Factory.cpp">
+      <Filter>ソース ファイル\GameObject\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectPool.cpp">
+      <Filter>ソース ファイル\GameObject\ObjectPool</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>ソース ファイル\GameObject\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Primitive.cpp">
+      <Filter>ソース ファイル\GameObject\Objects\Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangleBase.cpp">
+      <Filter>ソース ファイル\GameObject\Objects\Primitive\Triangle</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangles.cpp">
+      <Filter>ソース ファイル\GameObject\Objects\Primitive\Character\Enemy\Triangles</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectGroup.cpp">
+      <Filter>ソース ファイル\GameObject\ObjectGroup</Filter>
+    </ClCompile>
+    <ClCompile Include="ChildTriangles.cpp">
+      <Filter>ソース ファイル\GameObject\Objects\Primitive\Character\Enemy\Triangles\Child</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleBase.cpp">
+      <Filter>ソース ファイル\GameObject\Objects\Primitive\Circle</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>ソース ファイル\GameObject\Objects\Primitive\Character\Weapon\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletTrigger.cpp">
+      <Filter>ソース ファイル\GameObject\Objects\Primitive\Character\Weapon\Bullet\BulletTrigger</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>ソース ファイル\GameObject\Objects\Primitive\Character\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>ソース ファイル\System\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="ColliderManager.cpp">
+      <Filter>ソース ファイル\System\Collider\ColliderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleCollider.cpp">
+      <Filter>ソース ファイル\System\Collider\Colliders</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangleCollider.cpp">
+      <Filter>ソース ファイル\System\Collider\Colliders</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SceneBase.h">
+      <Filter>ヘッダー ファイル\Scene\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyInput.h">
+      <Filter>ヘッダー ファイル\System\Key</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>ヘッダー ファイル\System\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>ヘッダー ファイル\Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRoot.h">
+      <Filter>ヘッダー ファイル\Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>ヘッダー ファイル\Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadScene.h">
+      <Filter>ヘッダー ファイル\Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGameScene.h">
+      <Filter>ヘッダー ファイル\Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingScene.h">
+      <Filter>ヘッダー ファイル\Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>ヘッダー ファイル\System\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Assert.h">
+      <Filter>ヘッダー ファイル\System\Assert</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>ヘッダー ファイル\GameObject\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectPool.h">
+      <Filter>ヘッダー ファイル\GameObject\ObjectPool</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>ヘッダー ファイル\GameObject\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectHandle.h">
+      <Filter>ヘッダー ファイル\GameObject\ObjectHandle</Filter>
+    </ClInclude>
+    <ClInclude Include="Primitive.h">
+      <Filter>ヘッダー ファイル\GameObject\Objects\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleBase.h">
+      <Filter>ヘッダー ファイル\GameObject\Objects\Primitive\Triangle</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangles.h">
+      <Filter>ヘッダー ファイル\GameObject\Objects\Primitive\Character\Enemy\Triangles</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectGroup.h">
+      <Filter>ヘッダー ファイル\GameObject\ObjectGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="ChildTriangles.h">
+      <Filter>ヘッダー ファイル\GameObject\Objects\Primitive\Character\Enemy\Triangles\Child</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleBase.h">
+      <Filter>ヘッダー ファイル\GameObject\Objects\Primitive\Circle</Filter>
+    </ClInclude>
+    <ClInclude Include="Info.h">
+      <Filter>ヘッダー ファイル\GameInfo\MainInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectInfo.h">
+      <Filter>ヘッダー ファイル\GameInfo\ObjectInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>ヘッダー ファイル\GameObject\Objects\Primitive\Character\Weapon\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletTrigger.h">
+      <Filter>ヘッダー ファイル\GameObject\Objects\Primitive\Character\Weapon\Bullet\BulletTrigger</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>ヘッダー ファイル\GameObject\Objects\Primitive\Character\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>ヘッダー ファイル\System\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="ColliderManager.h">
+      <Filter>ヘッダー ファイル\System\Collider\ColliderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ColliderInfo.h">
+      <Filter>ヘッダー ファイル\GameInfo\ColliderInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleCollider.h">
+      <Filter>ヘッダー ファイル\System\Collider\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleCollider.h">
+      <Filter>ヘッダー ファイル\System\Collider\Colliders</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="オブジェクト生成・管理.txt">
+      <Filter>メモ</Filter>
+    </Text>
+    <Text Include="必須呼び出し一覧.txt">
+      <Filter>メモ</Filter>
+    </Text>
+    <Text Include="オブジェクトの役割分担.txt">
+      <Filter>メモ</Filter>
+    </Text>
+    <Text Include="進捗報告.txt">
+      <Filter>メモ</Filter>
+    </Text>
+    <Text Include="Triangles説明書.txt">
+      <Filter>メモ\キャラクター\Enemy</Filter>
+    </Text>
+    <Text Include="当たり判定構造案.txt">
+      <Filter>メモ</Filter>
+    </Text>
+    <Text Include="当たり判定の挙動手順.txt" />
+  </ItemGroup>
+</Project>

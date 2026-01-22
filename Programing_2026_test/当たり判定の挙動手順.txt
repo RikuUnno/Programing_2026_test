@@ -1,0 +1,121 @@
+当たり判定の挙動手順（CircleCollider / TriangleCollider 対応）
+
+1) 登録
+- 各 GameObject に Collider コンポーネント（CircleCollider または TriangleCollider）を追加する。
+- Collider 生成後に SetOwner(GameObject) を呼ぶ。
+- ColliderManager::RegisterCollider(shared_ptr<Collider>) で登録。
+
+2) 毎フレーム更新（ColliderManager::Update）
+- RebuildGrid:
+  - すべての登録 Collider に対して Collider::Update() を呼ぶ。
+  - 各 Collider は RecalculateAABBFromTransform() により Transform から自前の AABB を再計算し、ColliderInfo.worldAabb に格納する。
+  - AABB が跨るすべてのセルへグリッド登録。
+
+- 広域判定（Broad phase）:
+  - 同一セルに属する Collider 同士で AABB の重なりをチェック。
+  - 重複ペアはペアキーで抑制。
+
+- 詳細判定（Narrow phase）:
+  - レイヤー/マスクフィルタ通過後、Collider::CheckCollisionDetailed(other) を呼ぶ。
+  - CircleCollider:
+    - Circle vs Circle: 中心距離の二乗 <= (半径和)^2 で判定。
+    - Circle vs Triangle: 円中心と三角形の各辺との最近接距離、または中心が三角形内部かで判定。
+  - TriangleCollider:
+    - Triangle vs Triangle: 各辺の法線を分離軸として SAT（分離軸定理）で判定。
+    - Triangle vs Circle: 円側の実装へ委譲（CircleCollider::CheckCollisionDetailed）。
+
+- イベント通知:
+  - 今フレームの接触ペア集合と前フレーム集合を比較し、Enter/Stay/Exit を発行。
+    - Enter: 今回あり、前回なし。
+    - Stay: 今回あり、前回あり。
+    - Exit: 前回あり、今回なし（簡易版。必要ならペア辞書を保持）。
+
+3) 派生コライダーのAABB更新仕様
+- CircleCollider:
+  - 中心: Transform の位置（GetPosition）。
+  - 半径: m_radius（必要ならスケール係数を反映）。
+  - AABB: [cx-r, cx+r] × [cy-r, cy+r]。
+
+- TriangleCollider:
+  - ローカル頂点 m_local を Transform の位置で平行移動（簡易版）。
+  - AABB: ワールド頂点の min/max を使用。
+
+4) 注意・拡張
+- Transform の回転・スケールを AABB/頂点へ反映したい場合は、Transform のワールド行列（GetWorldMat）を用いてローカル頂点に適用してください。
+- Exit の厳密通知が必要なら、ペアキー→(Collider*, Collider*) の辞書を保持して復元する実装に拡張してください。
+- グリッドセルサイズ（SetCellSize）は密度に応じて調整してください。
+
+5) 実装削減のためのポインタ互換
+- ColliderType は CircleCollider: Circle、TriangleCollider: Polygon を返す。
+- CheckCollisionDetailed の中で相手の ColliderType に応じて分岐（円-三角形は円側で対応）。
+
+使用例（概念）
+- auto circle = std::make_shared<CircleCollider>(radius);
+- circle->SetOwner(gameObject);
+- ColliderManager::GetInstance().RegisterCollider(circle);
+- 毎フレーム: ColliderManager::GetInstance().Update();当たり判定の挙動手順（CircleCollider / TriangleCollider 対応）
+
+1) 登録
+- 各 GameObject に Collider コンポーネント（CircleCollider または TriangleCollider）を追加する。
+- Collider 生成後に SetOwner(GameObject) を呼ぶ。
+- ColliderManager::RegisterCollider(shared_ptr<Collider>) で登録。
+
+2) 毎フレーム更新（ColliderManager::Update）
+- RebuildGrid:
+  - すべての登録 Collider に対して Collider::Update() を呼ぶ。
+  - 各 Collider は RecalculateAABBFromTransform() により Transform から自前の AABB を再計算し、ColliderInfo.worldAabb に格納する。
+  - AABB が跨るすべてのセルへグリッド登録。
+
+- 広域判定（Broad phase）:
+  - 同一セルに属する Collider 同士で AABB の重なりをチェック。
+  - 重複ペアはペアキーで抑制。
+
+- 詳細判定（Narrow phase）:
+  - レイヤー/マスクフィルタ通過後、Collider::CheckCollisionDetailed(other) を呼ぶ。
+  - CircleCollider:
+    - Circle vs Circle: 中心距離の二乗 <= (半径和)^2 で判定。
+    - Circle vs Triangle: 円中心と三角形の各辺との最近接距離、または中心が三角形内部かで判定。
+  - TriangleCollider:
+    - Triangle vs Triangle: 各辺の法線を分離軸として SAT（分離軸定理）で判定。
+    - Triangle vs Circle: 円側の実装へ委譲（CircleCollider::CheckCollisionDetailed）。
+
+- イベント通知:
+  - 今フレームの接触ペア集合と前フレーム集合を比較し、Enter/Stay/Exit を発行。
+    - Enter: 今回あり、前回なし。
+    - Stay: 今回あり、前回あり。
+    - Exit: 前回あり、今回なし（簡易版。必要ならペア辞書を保持）。
+
+3) 派生コライダーのAABB更新仕様
+- CircleCollider:
+  - 中心: Transform の位置（GetPosition）。
+  - 半径: m_radius（必要ならスケール係数を反映）。
+  - AABB: [cx-r, cx+r] × [cy-r, cy+r]。
+
+- TriangleCollider:
+  - ローカル頂点 m_local を Transform の位置で平行移動（簡易版）。
+  - AABB: ワールド頂点の min/max を使用。
+
+4) 注意・拡張
+- Transform の回転・スケールを AABB/頂点へ反映したい場合は、Transform のワールド行列（GetWorldMat）を用いてローカル頂点に適用してください。
+- Exit の厳密通知が必要なら、ペアキー→(Collider*, Collider*) の辞書を保持して復元する実装に拡張してください。
+- グリッドセルサイズ（SetCellSize）は密度に応じて調整してください。
+
+5) 実装削減のためのポインタ互換
+- ColliderType は CircleCollider: Circle、TriangleCollider: Polygon を返す。
+- CheckCollisionDetailed の中で相手の ColliderType に応じて分岐（円-三角形は円側で対応）。
+
+使用例（概念）
+- auto circle = std::make_shared<CircleCollider>(radius);
+- circle->SetOwner(gameObject);
+- ColliderManager::GetInstance().RegisterCollider(circle);
+- 毎フレーム: ColliderManager::GetInstance().Update();
+
+用語集
+- AABB (Axis-Aligned Bounding Box): 軸に平行な境界ボックス。オブジェクトの簡易的な衝突判定に使用される。
+- Broad phase: 衝突判定の初期段階で、多数のオブジェクト間の潜在的な衝突を効率的に検出するプロセス。
+- Narrow phase: Broad phase で検出された潜在的な衝突ペアに対して、詳細な衝突判定を行うプロセス。
+- レイヤー/マスクフィルタ: 衝突判定を行うオブジェクトの種類を制御するための仕組み。
+　レイヤーはオブジェクトに割り当てられ、マスクはどのレイヤーと衝突するかを指定するビットマスク。
+- グリッドキー: グリッドベースの空間分割におけるセルの識別子。通常、セルの座標を整数ペアで表現する。
+- ペアキー: 衝突判定におけるオブジェクトペアの一意な識別子。通常、オブジェクトのポインタやIDを組み合わせて生成される。
+- SAT (Separating Axis Theorem): 分離軸定理。凸形状間の衝突判定に使用される理論で、2つの形状が重なっていない場合、少なくとも1つの軸に沿って分離できることを示す。
